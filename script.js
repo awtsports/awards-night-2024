@@ -3,7 +3,7 @@ var FORM_ID = "Qca7royn" // NOTE: Replace with your typeform id
 
 var wrapperElement = document.getElementById('wrapper')
 
-var displayed = getCookie("displayed_typeform"); //
+var displayed = getCookie("displayed_typeform_"+FORM_ID); //
 console.log("Displayed is: " + displayed);
 if (displayed){
   wrapperElement.innerHTML="<h2>Grazie per aver compilato il sondaggio!</h2><br><h2>Ora attendiamo i risultati 🥁🥁🥁</h2>"
@@ -24,7 +24,7 @@ function showEmbed(){ // call this function to display the embed typeform
       hideFooter: true,
       onSubmit: (event) => { //setup the cookie when form is submitted
         console.log(event.response_id)
-        setCookie("displayed_typeform", true, 365);
+        setCookie("displayed_typeform_"+FORM_ID, true, 365);
       },
     },
   )
